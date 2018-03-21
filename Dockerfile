@@ -21,12 +21,12 @@ ENV EDITOR=/bin/true
 WORKDIR /home/nobody
 
 USER root
-RUN cp /root/install-deps.sh /home/nobody
+RUN cp /root/install-aur-deps.sh /home/nobody
 
 # install extra deps from AUR
-RUN chown nobody /home/nobody/install-deps.sh
+RUN chown nobody /home/nobody/install-aur-deps.sh
 USER nobody
-RUN /home/nobody/install-deps.sh
+RUN /home/nobody/install-aur-deps.sh
 
 # build gstreamer
 USER root
