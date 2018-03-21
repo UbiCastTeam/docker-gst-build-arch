@@ -2,11 +2,15 @@
 
 This docker image uses [gst-build](https://github.com/GStreamer/gst-build) to compile the latest gstreamer master from source with meson. It is based on Arch Linux, so it will always be bleeding edge.
 
-## Building
+## Building manually
 
 ```
 docker build -t gst-build
 ```
+
+## Builds on docker hub
+
+Builds are automatically generated on docker hub at https://hub.docker.com/r/fthiery/gstreamer-build-master, but only when this repo changes; running rebuild_docker_hub.sh will trigger a rebuild.
 
 ## Usage
 
