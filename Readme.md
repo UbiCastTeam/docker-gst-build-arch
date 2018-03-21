@@ -5,7 +5,7 @@ This docker image uses [gst-build](https://github.com/GStreamer/gst-build) to co
 ## Building manually
 
 ```
-docker build -t gst-build
+docker build -t gst-build .
 ```
 
 ## Builds on docker hub
