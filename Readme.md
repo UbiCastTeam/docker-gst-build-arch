@@ -1,6 +1,6 @@
 # docker-gst-build
 
-This docker image uses [gst-build](https://github.com/GStreamer/gst-build) to compile the latest gstreamer master from source with meson.
+This docker image uses [gst-build](https://github.com/GStreamer/gst-build) to compile the latest gstreamer master from source with meson. It is based on Arch Linux, so it will always be bleeding edge.
 
 ## Building
 
