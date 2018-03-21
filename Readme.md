@@ -21,5 +21,5 @@ docker run -it gst-build /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videot
 ## Running with hardware acceleration (vaapi)
 
 ```
-docker run --privileged --name vaapitest -v /dev:/dev -it gst-build /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videotestsrc num-buffers=30 ! vaapih264enc ! fakesink silent=false
+docker run --privileged --name vaapitest -v /dev:/dev -it gst-build /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videotestsrc num-buffers=30 ! vaapih264enc ! fakesink silent=false -v
 ```
