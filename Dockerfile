@@ -10,7 +10,7 @@ RUN pacman -Sy --noconfirm --needed \
     ttf-freefont \
     libva-utils \
     libva-intel-driver \
-    git base-devel gtk-doc meson ninja gobject-introspection
+    git base-devel gtk-doc meson ninja
 
 # makepkg will only run as user, not root
 RUN echo "nobody ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nobody
