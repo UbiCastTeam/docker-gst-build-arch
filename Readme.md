@@ -23,3 +23,10 @@ docker run -it gst-build /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videot
 ```
 docker run --privileged --name vaapitest -v /dev:/dev -it gst-build /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videotestsrc num-buffers=30 ! vaapih264enc ! fakesink silent=false -v
 ```
+
+## Running with systemd
+
+```
+docker run -d -v /sys/fs/cgroup:/sys/fs/cgroup:ro --name mygst gst-build
+docker exec mygst /opt/gstreamer/gst-uninstalled.py gst-inspect-1.0 --version
+```
