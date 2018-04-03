@@ -2,6 +2,8 @@
 
 This docker image uses [gst-build](https://github.com/GStreamer/gst-build) to compile the latest gstreamer master from source with meson. It is based on Arch Linux, so it will always be bleeding edge.
 
+It adds openh264 support.
+
 ## Building manually
 
 ```
@@ -29,4 +31,5 @@ docker run --privileged --name vaapitest -v /dev:/dev -it gst-build /opt/gstream
 ```
 docker run -d -v /sys/fs/cgroup:/sys/fs/cgroup:ro --name mygst gst-build
 docker exec mygst /opt/gstreamer/gst-uninstalled.py gst-inspect-1.0 --version
+docker exec -it ask bash -c 'TERM=xterm bash'
 ```
