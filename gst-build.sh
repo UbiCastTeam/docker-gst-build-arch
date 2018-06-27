@@ -3,7 +3,7 @@ FOLDER=/opt/gstreamer
 mkdir -p $FOLDER
 git clone https://github.com/GStreamer/gst-build.git $FOLDER
 cd $FOLDER
-meson -Denable_python=true -Ddisable_gstreamer_sharp=true -Ddisable_rtsp_server=true -Ddisable_gst_editing_services=true -Ddisable_gst_libav=true build
+meson -Dpython=true -Dsharp=false -Drtsp_server=false -Dges=false -Dlibav=false build
 cd build
 ninja
 ln -sf /opt/gstreamer/gst-uninstalled.py /usr/local/bin
