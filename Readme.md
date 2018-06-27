@@ -31,4 +31,5 @@ docker run --privileged --name vaapitest -v /dev:/dev -it gst-build /opt/gstream
 ```
 docker run -d -v /sys/fs/cgroup:/sys/fs/cgroup:ro --name mygst gst-build
 docker exec mygst /opt/gstreamer/gst-uninstalled.py gst-inspect-1.0 --version
+docker exec -it ask bash -c 'TERM=xterm bash'
 ```
