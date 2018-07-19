@@ -14,7 +14,7 @@ RUN \
     pacman -Su --noconfirm --noprogressbar --quiet && \
     # Install useful packages
     pacman -S --noconfirm --noprogressbar --quiet --needed \
-        sudo systemd git base-devel \
+        sudo systemd git base-devel rsync \
         python-gobject gobject-introspection \
         gstreamer gstreamer-vaapi gst-plugins-base gst-plugins-good gst-plugins-bad gst-python \
         ttf-freefont \
