@@ -7,29 +7,25 @@ It adds openh264 support.
 ## Building manually
 
 ```
-docker build -t gst-build .
+docker build -t gst-build-img .
 ```
-
-## Builds on docker hub
-
-Builds are automatically generated on docker hub at https://hub.docker.com/r/fthiery/gstreamer-build-master, but only when this repo changes; running rebuild_docker_hub.sh will trigger a rebuild.
 
 ## Usage
 
 ```
-docker run -it gst-build /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videotestsrc num-buffers=30 ! fakesink silent=false -v
+docker run -it gst-build-img /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videotestsrc num-buffers=30 ! fakesink silent=false -v
 ```
 
 ## Running with hardware acceleration (vaapi)
 
 ```
-docker run --privileged --name vaapitest -v /dev:/dev -it gst-build /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videotestsrc num-buffers=30 ! vaapih264enc ! fakesink silent=false -v
+docker run --privileged gst-build-img --rm --name vaapitest -v /dev:/dev -it gst-build /opt/gstreamer/gst-uninstalled.py gst-launch-1.0 videotestsrc num-buffers=30 ! vaapih264enc ! fakesink silent=false -v
 ```
 
 ## Running with systemd
 
 ```
-docker run -d -v /sys/fs/cgroup:/sys/fs/cgroup:ro --name mygst gst-build
+docker run -d -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /tmp --tmpfs /run --name mygst gst-build-img /usr/lib/systemd/systemd
 docker exec mygst /opt/gstreamer/gst-uninstalled.py gst-inspect-1.0 --version
 docker exec -it mygst bash -c 'TERM=xterm bash'
 ```

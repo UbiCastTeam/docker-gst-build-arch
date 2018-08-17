@@ -28,7 +28,6 @@ RUN echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen && \
 
 ENV LANG=en_US.UTF-8
 
-
 # systemctl mask tmp.mount systemd-tmpfiles-setup.service && \
 # RUN systemctl mask tmp.mount systemd-tmpfiles-setup.service && \
 
@@ -51,6 +50,3 @@ RUN /home/nobody/install-aur-deps.sh
 # build gstreamer
 USER root
 RUN /root/gst-build.sh
-
-VOLUME ["/sys/fs/cgroup", "/run"]
-CMD  ["/usr/lib/systemd/systemd"]
