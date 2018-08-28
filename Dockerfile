@@ -14,7 +14,7 @@ RUN \
     pacman -Su --noconfirm --noprogressbar --quiet && \
     # Install useful packages
     pacman -S --noconfirm --noprogressbar --quiet --needed \
-        sudo systemd git base-devel rsync \
+        sudo systemd git base-devel rsync asp \
         python-gobject gobject-introspection \
         gstreamer gstreamer-vaapi gst-plugins-base gst-plugins-good gst-plugins-bad gst-python \
         ttf-freefont \
@@ -40,13 +40,16 @@ ENV EDITOR=/bin/true
 WORKDIR /home/nobody
 
 USER root
-RUN cp /root/install-aur-deps.sh /home/nobody
+RUN cp /root/install-openh264.sh /home/nobody
+RUN cp /root/recompile-plugins-bad.sh /home/nobody
 
-# install extra deps from AUR
-RUN chown nobody /home/nobody/install-aur-deps.sh
+RUN chown -R nobody /home/nobody/
 USER nobody
-RUN /home/nobody/install-aur-deps.sh
+RUN /home/nobody/install-openh264.sh
 
-# build gstreamer
+# recompile stable gstreamer to add openh264 support
+RUN /home/nobody/recompile-plugins-bad.sh
+
+# build gstreamer master
 USER root
 RUN /root/gst-build.sh
