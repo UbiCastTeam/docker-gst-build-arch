@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 FOLDER=/opt/gstreamer
 mkdir -p $FOLDER
 git clone https://github.com/GStreamer/gst-build.git $FOLDER
