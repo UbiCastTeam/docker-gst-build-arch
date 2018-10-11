@@ -16,7 +16,7 @@ RUN \
     pacman -S --noconfirm --noprogressbar --quiet --needed \
         sudo systemd git base-devel rsync asp \
         python-gobject gobject-introspection \
-        gstreamer gstreamer-vaapi gst-plugins-base gst-plugins-good gst-plugins-bad gst-python \
+        gstreamer gstreamer-vaapi gst-plugins-base gst-plugins-good gst-plugins-bad gst-python gst-libav \
         ttf-freefont \
         libva-utils libva-intel-driver \
         gtk-doc meson ninja
