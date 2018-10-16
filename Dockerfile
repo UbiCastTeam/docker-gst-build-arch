@@ -21,12 +21,12 @@ RUN \
         libva-utils libva-intel-driver \
         gtk-doc meson ninja
 
-RUN echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen && \
+RUN echo 'en_GB.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen && \
   # Because systemd is not installed in the same path across distributions
   # The /sbin/init link may or may not be provided by the base image
   if [ ! -e /sbin/init ]; then ln -s /lib/systemd/systemd /sbin/init; fi
 
-ENV LANG=en_US.UTF-8
+ENV LANG=en_GB.UTF-8
 
 # systemctl mask tmp.mount systemd-tmpfiles-setup.service && \
 # RUN systemctl mask tmp.mount systemd-tmpfiles-setup.service && \
