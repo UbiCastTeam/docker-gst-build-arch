@@ -4,5 +4,6 @@
 set -e
 asp export gst-plugins-bad
 cd gst-plugins-bad
+sed -i "s/openh264=disabled/openh264=enabled/" PKGBUILD
 makepkg -is --noconfirm
 cd ..
